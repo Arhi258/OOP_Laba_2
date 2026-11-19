@@ -6,16 +6,17 @@ import math
 
 class Pair:
     def __init__(self, first, second):
-        if (
-            isinstance(first, bool)
-            or not isinstance(first, (int, float))
-            or not math.isfinite(first)
-            or first <= 0
-        ):
+        if isinstance(first, bool) or not isinstance(first, (int, float)):
+            raise TypeError("Цена должна быть числом.")
+
+        if not math.isfinite(first) or first <= 0:
             raise ValueError("Цена должна быть положительным числом.")
 
-        if type(second) is not int or second <= 0:
-            raise ValueError("Количество должно быть положительным целым числом.")
+        if type(second) is not int:
+            raise TypeError("Количество должно быть целым числом.")
+
+        if second <= 0:
+            raise ValueError("Количество должно быть положительным.")
 
         self.first = float(first)
         self.second = second

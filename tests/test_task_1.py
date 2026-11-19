@@ -19,17 +19,17 @@ def test_fields():
 
 
 @pytest.mark.parametrize(
-    "price, quantity",
+    "price, quantity, error_type",
     [
-        (0, 1),
-        (-2, 1),
-        (10, 0),
-        (10, -2),
-        (10, 2.5),
+        (0, 1, ValueError),
+        (-2, 1, ValueError),
+        (10, 0, ValueError),
+        (10, -2, ValueError),
+        (10, 2.5, TypeError),
     ],
 )
-def test_invalid_values(price, quantity):
-    with pytest.raises(SystemExit):
+def test_invalid_values(price, quantity, error_type):
+    with pytest.raises(error_type):
         make_pair(price, quantity)
 
 

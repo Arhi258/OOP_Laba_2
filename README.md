@@ -18,21 +18,4 @@
 Реализация класса Angel для работы с углами
 в градусах и минутах.
 
-## Запуск программ
 
-Задание 1:
-
-    python -m Tasks.task_1.main
-
-Задание 2:
-
-    python -m Tasks.task_2.main
-
-## Запуск тестов
-
-    python -m pytest -v
-
-## Проверка качества кода
-
-    python -m ruff check .
-    python -m ruff format --check .

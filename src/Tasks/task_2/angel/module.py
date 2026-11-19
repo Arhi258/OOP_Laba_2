@@ -7,7 +7,7 @@ import math
 class Angel:
     def __init__(self, degrees, minutes):
         if type(degrees) is not int or type(minutes) is not int:
-            raise ValueError("Градусы и минуты должны быть целыми числами.")
+            raise TypeError("Градусы и минуты должны быть целыми числами.")
 
         if not 0 <= minutes < 60:
             raise ValueError("Минуты должны быть от 0 до 59.")
@@ -57,7 +57,7 @@ class Angel:
 
     def compare(self, other):
         if not isinstance(other, Angel):
-            raise ValueError("Для сравнения нужен объект Angel.")
+            raise TypeError("Для сравнения нужен объект Angel.")
 
         first = self.total_minutes % (360 * 60)
         second = other.total_minutes % (360 * 60)

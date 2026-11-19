@@ -35,11 +35,11 @@ from Tasks.task_1.pair import Pair
 def main():
     try:
         first, second = Pair.read()
-    except ValueError:
-        print("Ошибка: цена должна быть числом, а количество — целым числом.")
+        product = make_pair(first, second)
+    except (TypeError, ValueError) as error:
+        print(f"Ошибка: {error}")
         raise SystemExit(1) from None
 
-    product = make_pair(first, second)
     product.display()
     print(f"Стоимость товара: {product.cost():.2f}")
 
